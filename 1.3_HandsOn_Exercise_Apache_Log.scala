@@ -9,8 +9,8 @@
 
 // COMMAND ----------
 
-sc.hadoopConfiguration.set("fs.s3n.awsAccessKeyId", "AKIAJIWXMZ5GH7WJ5UDQ")
-sc.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "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")
+sc.hadoopConfiguration.set("fs.s3n.awsAccessKeyId", "<PrivateKey>")
+sc.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "<Secret Key>")
 
 // COMMAND ----------
 
