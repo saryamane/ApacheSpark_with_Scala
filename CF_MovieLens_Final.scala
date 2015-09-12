@@ -9,8 +9,8 @@
 
 // COMMAND ----------
 
-sc.hadoopConfiguration.set("fs.s3n.awsAccessKeyId", "AKIAJIWXMZ5GH7WJ5UDQ")
-sc.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "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")
+sc.hadoopConfiguration.set("fs.s3n.awsAccessKeyId", "<Access Key>")
+sc.hadoopConfiguration.set("fs.s3n.awsSecretAccessKey", "<Private Key>")
 val ratingRDD = sc.textFile("s3n://mlonspark/ml-100k/u.data")
 val itemRDD = sc.textFile("s3n://mlonspark/ml-100k/u.item")
 val userRDD = sc.textFile("s3n://mlonspark/ml-100k/u.user")
