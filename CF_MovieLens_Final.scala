@@ -1,4 +1,4 @@
-// Databricks notebook source exported at Sun, 13 Sep 2015 03:01:57 UTC
+// Databricks notebook source exported at Sun, 13 Sep 2015 03:32:40 UTC
 // MAGIC %md
 // MAGIC # Collaborative Filtering on 100K MovieLens Dataset
 
@@ -261,6 +261,54 @@ arrayOfTuple.toDF("Iteration","MSE score")
 val df1 = arrayOfTuple.toDF("Iteration","MSE value")
 
 display(df1)
+
+// COMMAND ----------
+
+// MAGIC %md
+// MAGIC 
+// MAGIC #### Doing some more exercises from the book
+
+// COMMAND ----------
+
+// MAGIC %md
+// MAGIC Inspecting the recommendations
+
+// COMMAND ----------
+
+val itemRDD = sc.textFile("s3n://mlonspark/ml-100k/u.item")
+val userRDD = sc.textFile("s3n://mlonspark/ml-100k/u.user")
+
+// COMMAND ----------
+
+itemRDD.first()
+
+// COMMAND ----------
+
+val titles = itemRDD.map(lines => lines.split("\\|").take(2)).map(array => (array(0).toInt, array(1))).collectAsMap()
+
+// COMMAND ----------
+
+titles(137)
+
+// COMMAND ----------
+
+ratings.first()
+
+// COMMAND ----------
+
+val moviesForUser = ratings.keyBy(_.user).lookup(789)
+
+// COMMAND ----------
+
+println(moviesForUser.size)
+
+// COMMAND ----------
+
+moviesForUser.sortBy(-_.rating).take(10).map(rating => (titles(rating.product), rating.product, rating.rating)).foreach(println)
+
+// COMMAND ----------
+
+topKRecs.map(rating => (titles(rating.product), rating.rating)).foreach(println)
 
 // COMMAND ----------
 
