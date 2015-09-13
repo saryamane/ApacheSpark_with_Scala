@@ -1,4 +1,4 @@
-// Databricks notebook source exported at Sat, 12 Sep 2015 22:34:01 UTC
+// Databricks notebook source exported at Sun, 13 Sep 2015 03:01:57 UTC
 // MAGIC %md
 // MAGIC # Collaborative Filtering on 100K MovieLens Dataset
 
